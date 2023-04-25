@@ -1,0 +1,79 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    position: fixed;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.register_image {
+    margin-bottom: 1rem;
+}
+
+.register_container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-bottom: 2rem;
+}
+
+.register_title {
+    margin: 0;
+}
+
+.register_description {
+    margin-bottom: 3rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    margin-bottom: 1rem;
+    min-width: 250px;
+    padding: 10px;
+
+    box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 29px 0px;
+    border-radius: 5px;
+    border: 1px solid rgba(100, 100, 111, 0.2);
+}
+
+.error {
+    border: 1px solid #ff4343;
+}
+
+.register_confirm_password {
+    margin-bottom: 2rem;
+}
+
+.register_button {
+    min-width: 100px;
+    color: white;
+    background-color: #6f2de0;
+    border: unset;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.register_login_text {
+    margin-top: 3rem;
+}
+
+.register_login_text a {
+    color: #9191ea;
+    text-decoration: none;
+}
