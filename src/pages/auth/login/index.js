@@ -45,7 +45,7 @@ export default function Login() {
         <form className={styles.form} onSubmit={handleSubmit}>
           <input className={styles.input} value={userInfo.email} onChange={({ target}) => setUserInfo({ ...userInfo, email: target.value })} type={"text"} name={"email"} placeholder={"Email"}/>
           <input className={[styles.login_password, styles.input].join(" ")} onChange={({ target}) => setUserInfo({ ...userInfo, password: target.value })} value={userInfo.password} type={"password"} name={"password"} placeholder={"Password"}/>
-          <button className={styles.login_button}>Login</button>
+          <button style={{cursor: 'pointer'}} className={styles.login_button}>Login</button>
         </form>
 
         <span className={styles.login_register_text}>Not registered? <a href={"/auth/register/"}>Sign Up.</a></span>

@@ -59,7 +59,7 @@ export default NextAuth({
 
 
 async function getUserFromKey({ key }) {
-  const url = "http://localhost:8080/api/user/get?key=" + key + "&baseId=1"
+  const url = "http://localhost:8080/api/user/get?key=" + key
   const getResponse = await fetch(url, {
     method: 'GET',
     headers: {

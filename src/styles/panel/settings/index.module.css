@@ -28,25 +28,46 @@
     padding: 0;
 }
 
-.organizations_container {
+.create_organization_container {
     display: flex;
     flex-direction: column;
 
     border-radius: 15px;
     background-color: #161a3b;
 
-    padding: 1rem;
+    padding: 1rem 2rem 2rem 2rem;
 }
 
-.organizations_title {
+.create_organization_title {
     color: white;
+    align-self: center;
+    margin-bottom: 2rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-self: center;
 }
 
-.organizations_list_container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.organization_name_input {
+    margin-bottom: 1rem;
+    min-width: 250px;
+    padding: 10px;
 
-    max-width: 400px;
+    box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 29px 0px;
+    border-radius: 5px;
+    border: 1px solid rgba(100, 100, 111, 0.2);
+}
+
+.submit_button {
+    min-width: 100px;
+    color: white;
+    background-color: #6f2de0;
+    border: unset;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: bold;
 }

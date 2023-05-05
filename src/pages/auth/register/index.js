@@ -98,7 +98,7 @@ export default function Register() {
             placeholder={"Confirm password"}
             onChange={({ target}) => setUserInfo({ ...userInfo, confirmPassword: target.value })}
           />
-          <button className={styles.register_button}>Sign Up</button>
+          <button style={{cursor: 'pointer'}} className={styles.register_button}>Sign Up</button>
         </form>
 
         <span className={styles.register_login_text}>Already registered? <a href={"/auth/login/"}>Login.</a></span>

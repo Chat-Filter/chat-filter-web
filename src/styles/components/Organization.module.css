@@ -1,0 +1,40 @@
+.organization_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 200px;
+    min-height: 200px;
+    margin-bottom: 1rem;
+
+    transition: transform .2s;
+}
+
+.organization_container:hover {
+    transform: scale(1.1);
+}
+
+.organization_link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+}
+
+.organization_icon {
+    max-width: 120px;
+    max-height: 120px;
+}
+
+.organization_name {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.organization_checks {
+    color: white;
+}
