@@ -3,6 +3,17 @@
     min-height: 100vh;
 }
 
+.logo_link {
+    z-index: 999;
+    position: absolute;
+    margin: 1rem;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
 .sidebar {
     position: fixed;
     display: flex;

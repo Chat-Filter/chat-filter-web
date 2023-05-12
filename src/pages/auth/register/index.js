@@ -3,6 +3,7 @@ import chatFilterLogo from "../../../../public/logo.svg";
 import Image from "next/image";
 import { useState } from "react";
 import {signIn} from "next-auth/react";
+import { register } from "@/api/api-calls";
 
 export default function Register() {
   const [userInfo, setUserInfo] = useState({ name: "", lastName: "", email: "", password: "", confirmPassword: ""});
@@ -23,23 +24,10 @@ export default function Register() {
       return
     }
 
-    const payload = {
-      email: userInfo.email,
-      password: userInfo.password,
-      name: userInfo.name,
-      lastName: userInfo.lastName
-    };
 
-    const registerResponse = await fetch('http://localhost:8080/api/auth/register', {
-      method: 'POST',
-      body: JSON.stringify(payload),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
 
     try {
-      const key = await registerResponse.json()
+      const key = await register(userInfo.email, userInfo.password, userInfo.name, userInfo.lastName)
       const loginResponse = await signIn('credentials', {
         email: userInfo.email,
         password: userInfo.password,

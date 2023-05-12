@@ -8,3 +8,7 @@
 body {
   margin: 0;
 }
+
+.svg-inline--fa {
+  height: auto !important;
+}

@@ -26,7 +26,6 @@ export default function Home() {
               />
             </a>
 
-
             <ul className={styles.header_nav_bar}>
               <li>
                 <a href={"/"} className={styles.selected}>Home</a>
@@ -55,7 +54,7 @@ export default function Home() {
             <AboutSection
               faIcon={faShieldHalved}
               faColor={"#5e75e5"}
-              faWidth={"40px"}
+              faWidth={"80px"}
               title={"Example title Example Title Example Title"}
               text={"Trusted by 50,000+ Minecraft networks since 2015. Stay online no matter what threats face you. The ideal solution for gaming networks that demand low latency and 100% uptime."}
             />

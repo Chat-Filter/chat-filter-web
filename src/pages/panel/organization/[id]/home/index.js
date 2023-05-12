@@ -1,9 +1,12 @@
 import { useSession } from "next-auth/react"
 import ErrorComponent from "@/(components)/ErrorComponent";
-import styles from "@/styles/panel/settings/index.module.css";
+import styles from "@/styles/panel/organization/home/index.module.css";
 import SidebarPanel from "@/(components)/SidebarPanel";
 import {faChartSimple, faEnvelope, faUsers, faGear, faRightFromBracket, faTrash} from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/router";
+import Image from "next/image";
+import chatFilterLogo from "../../../../../../public/logo-white.svg";
+import Link from "next/link";
 
 export default function OrganizationHomePanel(params) {
   const { data: session } = useSession()
@@ -38,6 +41,13 @@ export default function OrganizationHomePanel(params) {
 
   return (
     <div className={styles.main_container}>
+      <Link href={"/panel/home"} className={styles.logo_link}>
+        <Image
+          className={styles.logo}
+          src={ chatFilterLogo }
+          alt={"Logo"}
+        />
+      </Link>
       <div className={styles.sidebar}>
         <SidebarPanel
           title={"Options"}

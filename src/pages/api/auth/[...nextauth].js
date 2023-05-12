@@ -1,5 +1,6 @@
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
+import { login, getUser } from "@/api/api-calls"
 
 export default NextAuth({
   providers: [
@@ -15,22 +16,9 @@ export default NextAuth({
         password: { label: 'Password', type: 'password' }
       },
       async authorize(credentials, req) {
-        const payload = {
-          email: credentials.email,
-          password: credentials.password,
-        };
-
-        const keyResponse = await fetch('http://localhost:8080/api/auth/login', {
-          method: 'POST',
-          body: JSON.stringify(payload),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-
         try {
-          return await keyResponse.json()
-        } catch (ignored) {
+          return await login(credentials.email, credentials.password)
+        } catch (e) {
           return false
         }
       }
@@ -43,9 +31,12 @@ export default NextAuth({
   },
   callbacks: {
     async session({ session, token}) {
-      const user = await getUserFromKey(token)
-      session.user = user
-      return session
+      try {
+        session.user = await getUser(token.key, false)
+        return session
+      } catch (e) {
+        return null
+      }
     },
     async jwt({token, user, account, profile}) {
       if (user) {
@@ -56,27 +47,3 @@ export default NextAuth({
     },
   }
 })
-
-
-async function getUserFromKey({ key }) {
-  const url = "http://localhost:8080/api/user/get?key=" + key
-  const getResponse = await fetch(url, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-
-  try {
-    const user = await getResponse.json()
-    return {
-      id: user.id,
-      key: key,
-      email: user.email,
-      name: user.name,
-      lastName: user.lastName,
-    }
-  } catch (ignored) {
-    return null
-  }
-}

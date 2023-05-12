@@ -5,47 +5,10 @@ import SidebarPanel from "@/(components)/SidebarPanel.jsx";
 import { faBuilding, faEnvelope, faCirclePlus, faGear, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import Organization from "@/(components)/Organization";
 import { useState, useEffect } from "react";
-
-async function getUser(key) {
-  const url = "http://localhost:8080/api/user/get?key=" + key + "&baseId=1"
-  const getResponse = await fetch(url, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-
-  try {
-    return await getResponse.json()
-  } catch (e) {
-    console.error(e)
-  }
-}
-
-async function getOrganizations(key) {
-  if (key === null) return
-
-  const user = await getUser(key)
-  var organizationObjects = []
-
-  for (const orgId of user.organizations) {
-    const url = "http://localhost:8080/api/organization/get?userKey=" + key + "&organizationId=" + orgId
-    const response = await fetch(url, {
-      method: "GET",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-
-    try {
-      organizationObjects.push(await response.json())
-    } catch (e) {
-      console.error(e)
-    }
-  }
-
-  return organizationObjects;
-}
+import {getOrganizations} from "@/api/api-calls";
+import Image from "next/image";
+import chatFilterLogo from "../../../../public/logo-white.svg";
+import Link from "next/link";
 
 export default function PanelHome() {
   const { data: session } = useSession()
@@ -67,7 +30,7 @@ export default function PanelHome() {
 
   const sidebarOptions = [
     {id: "organizations", name: "Organizations", url: "/panel/home", selected: true, faIcon: faBuilding, faColor: "#ffffff", faWidth: "20px"},
-    {id: "pendingInvites", name: "Pending Invites", url: "/", faIcon: faEnvelope, faColor: "#ffffff", faWidth: "20px"},
+    {id: "pendingInvites", name: "Pending Invites", url: "/panel/pending-invites", faIcon: faEnvelope, faColor: "#ffffff", faWidth: "20px"},
     {id: "createOrganization", name: "Create Organization", url: "/panel/create-organization", faIcon: faCirclePlus, faColor: "#ffffff", faWidth: "20px"},
     {id: "settings", name: "Settings", url: "/panel/settings", faIcon: faGear, faColor: "#ffffff", faWidth: "20px"},
     {id: "signOut", name: "Sign out", url: "/api/auth/signout", faIcon: faRightFromBracket, faColor: "#bb3131", faWidth: "20px"}
@@ -75,7 +38,13 @@ export default function PanelHome() {
 
   return <>
     <div className={styles.main_container}>
-
+      <Link href={"/"} className={styles.logo_link}>
+        <Image
+          className={styles.logo}
+          src={ chatFilterLogo }
+          alt={"Logo"}
+        />
+      </Link>
       <div className={styles.sidebar}>
         <SidebarPanel
           title={"Options"}
