@@ -233,6 +233,32 @@ export async function joinOrganization(key, organizationId) {
   }
 }
 
+export async function leaveOrganization(key, organizationId) {
+  const url = "http://localhost:8080/api/organization/leave"
+  const payload = {
+    key: key,
+    organizationId: organizationId,
+  }
+
+  const response = await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(payload),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  try {
+    if (response.status !== 200) {
+      return null;
+    } else {
+      return response.json()
+    }
+  } catch (e) {
+    console.error(e)
+  }
+}
+
 export async function getMemberData(key, organizationId, memberId) {
   const url = "http://localhost:8080/api/organization/member-data?userKey=" + key + "&organizationId=" + organizationId + "&memberId=" + memberId
   const response = await fetch(url, {
@@ -281,6 +307,75 @@ export async function kickMember(key, organizationId, userIdToKick) {
     } else {
       return response.json()
     }
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+export async function updateName(key, organizationId, name) {
+  const url = "http://localhost:8080/api/organization/update/name"
+  const payload = {
+    key: key,
+    organizationId: organizationId,
+    name: name
+  }
+
+  const response = await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(payload),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  try {
+    if (response.status !== 200) {
+      return null;
+    } else {
+      return response.json()
+    }
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+export async function deleteOrganization(key, organizationId) {
+  const url = "http://localhost:8080/api/organization/delete"
+  const payload = {
+    key: key,
+    organizationId: organizationId,
+  }
+
+  const response = await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(payload),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  try {
+    if (response.status !== 200) {
+      return null;
+    } else {
+      return response.json()
+    }
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+export async function getStatisticsData(key, organizationId) {
+  const url = "http://localhost:8080/api/organization/statistics-data?userKey=" + key + "&organizationId=" + organizationId
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+
+  try {
+    return response.json()
   } catch (e) {
     console.error(e)
   }

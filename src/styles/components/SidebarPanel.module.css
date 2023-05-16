@@ -4,7 +4,7 @@
     margin: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
 
     border-radius: 10px;
@@ -24,6 +24,7 @@
     flex-direction: column;
     list-style: none;
     align-items: start;
+    width: 100%;
 
     padding: 0;
     margin: 0;

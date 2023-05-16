@@ -52,8 +52,8 @@ export default function OrganizationInvites(params) {
     {id: "pendingInvites", name: "Invites", url: "/panel/organization/" + id + "/invites", faIcon: faEnvelope, faColor: "#ffffff", faWidth: "20px"},
     {id: "members", name: "Members", url: "/panel/organization/" + id + "/members", selected: true, faIcon: faUsers, faColor: "#ffffff", faWidth: "20px"},
     {id: "settings", name: "Settings", url: "/panel/organization/" + id + "/settings", faIcon: faGear, faColor: "#ffffff", faWidth: "20px"},
-    {id: "leave", name: "Leave", url: "/panel/organization/" + id + "/members", faIcon: faRightFromBracket, faColor: "#ffffff", faWidth: "20px"},
-    {id: "delete", name: "Delete", url: "/panel/organization/" + id + "/leave", faIcon: faTrash, faColor: "#bb3131", faWidth: "20px"},
+    {id: "leave", name: "Leave", url: "/panel/organization/" + id + "/leave", faIcon: faRightFromBracket, faColor: "#ffffff", faWidth: "20px"},
+    {id: "delete", name: "Delete", url: "/panel/organization/" + id + "/delete", faIcon: faTrash, faColor: "#bb3131", faWidth: "20px"},
   ]
 
   const handleKick = (userId) => {
@@ -72,7 +72,7 @@ export default function OrganizationInvites(params) {
       </Link>
       <div className={styles.sidebar}>
         <SidebarPanel
-          title={"Options"}
+          title={"Organization Options"}
           items={sidebarOptions}
         />
       </div>
