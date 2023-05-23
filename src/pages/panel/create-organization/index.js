@@ -39,7 +39,7 @@ export default function CreateOrganization() {
   ]
 
   return (
-      <div className={styles.main_container}>
+      <div className="main_container">
         <Link href={"/"} className={styles.logo_link}>
           <Image
             className={styles.logo}

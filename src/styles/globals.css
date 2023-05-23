@@ -12,3 +12,8 @@ body {
 .svg-inline--fa {
   height: auto !important;
 }
+
+.main_container {
+  background-color: #1d2148;
+  min-height: 100vh;
+}

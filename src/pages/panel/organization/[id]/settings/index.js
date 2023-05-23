@@ -44,6 +44,11 @@ export default function CreateOrganization() {
     window.location.reload()
   }
 
+  const handleCopy = (e) => {
+    e.preventDefault()
+    navigator.clipboard.writeText(organization.key.key);
+  }
+
   const sidebarOptions = [
     {id: "statistics", name: "Statistics", url: "/panel/organization/" + id + "/home", faIcon: faChartSimple, faColor: "#ffffff", faWidth: "20px"},
     {id: "pendingInvites", name: "Invites", url: "/panel/organization/" + id + "/invites", faIcon: faEnvelope, faColor: "#ffffff", faWidth: "20px"},
@@ -80,6 +85,17 @@ export default function CreateOrganization() {
               onChange={({ target}) => setOrganizationName(target.value)}
             />
             <button style={{cursor: 'pointer'}} className={styles.submit_button}>Update</button>
+          </form>
+        </div>
+        <div className={styles.settings_container}>
+          <h2 className={styles.settings_title}>API key</h2>
+          <form className={styles.form} onSubmit={handleCopy}>
+            <div className={styles.key_container}>
+              <span className={styles.key_text}>{
+                organization.hasOwnProperty("key") ? organization.key.key : "Loading..."
+              }</span>
+            </div>
+            <button style={{cursor: 'pointer'}} className={styles.submit_button}>Copy</button>
           </form>
         </div>
       </div>
