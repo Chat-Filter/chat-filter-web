@@ -53,21 +53,21 @@ export default function Price() {
         <div className={styles.plan_container}>
           <PlanSection
             name={"FREE"}
-            description={"Test description Test description Test description Test description"}
+            description={"Get started with ChatFilter's FREE plan. Experience the power of our toxicity detection service at no cost."}
             price={"0 $"}
-            perks={["Perk 1", "Perk 2", "Perk 3"]}
+            perks={["1.000 daily checks", "Up to 3 organization members"]}
           />
           <PlanSection
             name={"PRO"}
-            description={"Test description Test description Test description Test description"}
+            description={"Upgrade to ChatFilter's PRO plan for just $10.99. Take control of toxic content with enhanced features."}
             price={"10.99 $"}
-            perks={["Perk 1", "Perk 2", "Perk 3", "Perk 4", "Perk 5", "Perk 6"]}
+            perks={["10.000 daily checks", "Up to 10 organization members"]}
           />
           <PlanSection
             name={"PREMIUM"}
-            description={"Test description Test description Test description Test description"}
+            description={"Elevate your moderation efforts with ChatFilter's PREMIUM plan. Experience comprehensive toxicity detection and management with unlimited daily checks."}
             price={"29.99 $"}
-            perks={["Perk 1", "Perk 2", "Perk 3", "Perk 4", "Perk 5", "Perk 6"]}
+            perks={["Unlimited daily checks", "Up to 50 organization members"]}
           />
         </div>
       </div>

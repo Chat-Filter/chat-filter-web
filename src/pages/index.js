@@ -4,7 +4,7 @@ import purpleBackground from '../../public/purple-bg.jpg'
 import Image from 'next/image'
 import AboutSection from "../../../chat-filter-web/src/(components)/AboutSection";
 import FooterSection from "../../../chat-filter-web/src/(components)/FooterSection";
-import { faShieldHalved } from "@fortawesome/free-solid-svg-icons";
+import { faTriangleExclamation, faBolt } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
     return (
@@ -44,7 +44,7 @@ export default function Home() {
               Highly available chat protection platform
             </h1>
             <p className={styles.top_info_text}>
-              Trusted by 50,000+ Minecraft networks since 2015. Stay online no matter what threats face you. The ideal solution for gaming networks that demand low latency and 100% uptime.
+              Harnessing the power of AI, our service ensures safe and respectful conversations by detecting toxicity in messages. Trust our intelligent system to analyze and filter out harmful content, promoting a positive online environment.
             </p>
           </div>
         </div>
@@ -52,32 +52,18 @@ export default function Home() {
         <div className={styles.main_container}>
           <div className={styles.about_container}>
             <AboutSection
-              faIcon={faShieldHalved}
-              faColor={"#5e75e5"}
-              faWidth={"80px"}
-              title={"Example title Example Title Example Title"}
-              text={"Trusted by 50,000+ Minecraft networks since 2015. Stay online no matter what threats face you. The ideal solution for gaming networks that demand low latency and 100% uptime."}
+              faIcon={faTriangleExclamation}
+              faColor={"#6f2de0"}
+              faWidth={"40px"}
+              title={"Advanced Toxicity Detection"}
+              text={"Utilize ChatFilter's cutting-edge AI algorithms to accurately identify and flag toxic content, protecting your online community from harmful messages."}
             />
             <AboutSection
-              faIcon={faShieldHalved}
-              faColor={"#5e75e5"}
+              faIcon={faBolt}
+              faColor={"#6f2de0"}
               faWidth={"40px"}
-              title={"Example title Example Title Example Title"}
-              text={"Trusted by 50,000+ Minecraft networks since 2015. Stay online no matter what threats face you. The ideal solution for gaming networks that demand low latency and 100% uptime."}
-            />
-            <AboutSection
-              faIcon={faShieldHalved}
-              faColor={"#5e75e5"}
-              faWidth={"40px"}
-              title={"Example title Example Title Example Title"}
-              text={"Trusted by 50,000+ Minecraft networks since 2015. Stay online no matter what threats face you. The ideal solution for gaming networks that demand low latency and 100% uptime."}
-            />
-            <AboutSection
-              faIcon={faShieldHalved}
-              faColor={"#5e75e5"}
-              faWidth={"40px"}
-              title={"Example title Example Title Example Title"}
-              text={"Trusted by 50,000+ Minecraft networks since 2015. Stay online no matter what threats face you. The ideal solution for gaming networks that demand low latency and 100% uptime."}
+              title={"Real-time Monitoring System"}
+              text={"Stay one step ahead with ChatFilter's real-time monitoring feature, enabling instant detection and prevention of toxic messages as they are being sent."}
             />
           </div>
 
